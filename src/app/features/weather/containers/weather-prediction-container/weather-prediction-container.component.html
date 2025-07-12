@@ -1,0 +1,14 @@
+<div class="weather">
+  <div class="weather__title">
+    <h1>Weather Prediction</h1>
+  </div>
+  <div class="weather__cities">
+    @for (city of cities$ | async; track city) {
+    <button class="weather__city" (click)="loadWeatherData(city)">
+      {{ city }}
+    </button>
+    }@empty {
+    <p>No cities available</p>
+    }
+  </div>
+</div>
