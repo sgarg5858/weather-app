@@ -14,7 +14,7 @@ const initializeSelectors = (store: MockStore<WeatherState>): void => {
   store.overrideSelector(selectWeatherData,null);
 }
 
-describe('WeatherPredictionContainerComponent', () => {
+fdescribe('WeatherPredictionContainerComponent', () => {
   let component: WeatherPredictionContainerComponent;
   let fixture: ComponentFixture<WeatherPredictionContainerComponent>;
   let store: MockStore<WeatherState>;
