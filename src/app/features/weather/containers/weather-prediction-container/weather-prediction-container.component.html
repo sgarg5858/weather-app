@@ -1,4 +1,4 @@
-<div class="weather">
+<div class="weather weather--mt-20">
   <div class="weather__cities">
     @for (city of cities$ | async; track city) {
     <button
@@ -14,8 +14,8 @@
   @if(weatherData$ | async; as weatherData) {
   <app-city-weather [cityWeather]="weatherData"></app-city-weather>
   }@else if(error$ | async) {
-  <h2 class="error">Couldn't load data, please retry</h2>
+  <h2 class="weather__error">Couldn't load data, please retry</h2>
   }@else {
-  <h2 class="info">Please select city to view weather forecast.</h2>
+  <h2 class="weather__info">Please select city to view weather forecast.</h2>
   }
 </div>
