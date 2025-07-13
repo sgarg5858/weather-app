@@ -1,8 +1,8 @@
-<div class="card">
-  <div class="card__header">
+<div class="city-weather">
+  <div class="city-weather__header">
     <h2>{{ cityWeather.city }}</h2>
   </div>
-  <div class="card__body">
+  <div class="city-weather__body">
     @for(weatherData of cityWeather.weatherData; track weatherData) {
     <app-city-day-weather [weather]="weatherData"></app-city-day-weather>
     }

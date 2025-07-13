@@ -1,15 +1,17 @@
-.card {
+.city-weather {
+    margin :auto;    
     margin-top: 50px;
     border:  1px solid black;
     border-radius: 8px;
-    width: 100%;
+    width: 95%;
     min-height: 500px;
     background-color: #f6f6f6;
-    flex-wrap: wrap;
 
     &__header {
         width: 100%;
         text-align: center;
+        margin: 20px;
+        color: #4a90e2
     }
     &__body {
         padding: 20px;

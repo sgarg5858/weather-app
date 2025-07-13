@@ -19,3 +19,7 @@ export const selectWeatherData = createSelector(
   selectWeatherState,
   (state: WeatherState) => state.weatherData
 );
+export const selectError = createSelector(
+  selectWeatherState,
+  (state: WeatherState) => state.error
+);

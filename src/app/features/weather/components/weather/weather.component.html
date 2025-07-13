@@ -1,0 +1,17 @@
+<div class="weather">
+  <div
+    class="weather__hour"
+    [class]="{ 'weather__hour--main': currentWeather }"
+  >
+    <div class="weather__date">
+      {{ weather.date | date : "shortTime" }}
+    </div>
+    <div class="weather__description">
+      {{ weather.description }}
+    </div>
+    <div class="weather__data">
+      <div class="weather__temperature">{{ weather.temperature }}° C</div>
+      <div class="weather__wind">wind: {{ weather.windspeed }}</div>
+    </div>
+  </div>
+</div>

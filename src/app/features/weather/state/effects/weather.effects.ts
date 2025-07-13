@@ -17,12 +17,12 @@ export class WeatherEffects {
       ofType(WeatherActions.loadWeatherData),
       switchMap(({ city }) =>
         this.weatherService.getWeatherData(city).pipe(
-          map((weatherData) => {
-            return WeatherActions.loadWeatherDataSuccess({
+          map((weatherData) =>
+            WeatherActions.loadWeatherDataSuccess({
               data: WeatherHelpers.formatWeatherData(weatherData),
-            });
-          }),
-          catchError((error) =>
+            })
+          ),
+          catchError(() =>
             of(
               WeatherActions.loadWeatherDataFailed({
                 error: `Couldn't load data for ${city} `,

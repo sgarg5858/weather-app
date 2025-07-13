@@ -24,6 +24,7 @@ export const weatherReducer = createReducer(
     return {
       ...state,
       selectedCity: action.city,
+      weatherData: null,
       error: null,
     };
   }),
@@ -37,6 +38,7 @@ export const weatherReducer = createReducer(
     return {
       ...state,
       selectedCity: null,
+      weatherData: null,
       error,
     };
   })
