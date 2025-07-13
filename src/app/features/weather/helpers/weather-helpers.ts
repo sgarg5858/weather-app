@@ -41,7 +41,12 @@ export class WeatherHelpers {
     const weatherData = transformWeatherDataList(list);
     const groupedByDate = groupWeatherByDate(weatherData);
     const limitedData = limitWeatherDataByDays(groupedByDate, 5);
-
+    console.log(
+      {
+      city: city.name,
+      weather: limitedData,
+    }
+    )
     return {
       city: city.name,
       weather: limitedData,

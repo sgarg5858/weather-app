@@ -10,6 +10,7 @@ export interface WeatherResponse {
     dt_txt: string; // Date and time of the forecast
     pop?: number;
     sys?: any; // Additional system data if needed
+    rain?:any;
 }
 
 export interface Weather {

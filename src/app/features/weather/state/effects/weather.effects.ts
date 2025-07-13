@@ -25,7 +25,7 @@ export class WeatherEffects {
           catchError(() =>
             of(
               WeatherActions.loadWeatherDataFailed({
-                error: `Couldn't load data for ${city} `,
+                error: `Couldn't load data for ${city}`,
               })
             )
           )
