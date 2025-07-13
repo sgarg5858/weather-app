@@ -15,3 +15,7 @@ export const selectSelectedCity = createSelector(
   selectWeatherState,
   (state: WeatherState) => state.selectedCity
 );
+export const selectWeatherData = createSelector(
+  selectWeatherState,
+  (state: WeatherState) => state.weatherData
+);

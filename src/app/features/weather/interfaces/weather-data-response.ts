@@ -1,5 +1,5 @@
 import { City } from "./city";
-import { WeatherResponse } from "./weather";
+import { Weather, WeatherResponse } from "./weather";
 
 export interface WeatherDataResponse {
     cod: string;
@@ -10,4 +10,5 @@ export interface WeatherDataResponse {
 }
 export interface WeatherData {
     city: string;
+    weatherData: Weather[][];
 }

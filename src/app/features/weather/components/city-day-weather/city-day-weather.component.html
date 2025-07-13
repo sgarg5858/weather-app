@@ -1,0 +1,34 @@
+<div class="weather-day">
+  <div class="weather-day__date">{{ currentWeather?.date | date }}</div>
+  <div class="weather-day__description">{{ currentWeather?.description }}</div>
+  <div class="weather-day__data">
+    <div class="weather-day__temperature">
+      {{ currentWeather?.temperature }}° C
+    </div>
+    <div class="weather-day__wind">wind: {{ currentWeather?.windspeed }}</div>
+  </div>
+
+  <details class="weather-day__details">
+    <summary>Hourly Forecast</summary>
+    <div class="weather-day__hourly">
+      @for (hourlyWeather of weather; track hourlyWeather) {
+      <div class="weather-day__hour">
+        <div class="weather-day__date">
+          {{ hourlyWeather.date | date : "shortTime" }}
+        </div>
+        <div class="weather-day__description">
+          {{ hourlyWeather.description }}
+        </div>
+        <div class="weather-day__data">
+          <div class="weather-day__temperature">
+            {{ hourlyWeather.temperature }}° C
+          </div>
+          <div class="weather-day__wind">
+            wind: {{ hourlyWeather.windspeed }}
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </details>
+</div>

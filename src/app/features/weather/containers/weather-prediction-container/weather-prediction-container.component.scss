@@ -22,5 +22,10 @@
         &:hover {
             background-color: #f0f0f0;
         }
+        &--active, &--active:hover {
+            background-color: #2d1c1c;
+            color: white;
+            font-weight: bold;
+        }
     }
 }

@@ -1,12 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
 import { WeatherActions } from '../actions';
+import { WeatherData } from '../../interfaces/weather-data-response';
 
 export const WEATHER_FEATURE_KEY = 'weather';
 
 export interface WeatherState {
   cities: string[];
   selectedCity: string | null;
-  weatherData: any;
+  weatherData: WeatherData | null;
   error: any;
 }
 
@@ -35,6 +36,7 @@ export const weatherReducer = createReducer(
   on(WeatherActions.loadWeatherDataFailed, (state, { error }) => {
     return {
       ...state,
+      selectedCity: null,
       error,
     };
   })

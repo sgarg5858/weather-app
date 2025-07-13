@@ -1,11 +1,13 @@
 import { Weather, WeatherResponse } from '../interfaces/weather';
-import { WeatherDataResponse } from '../interfaces/weather-data-response';
+import {
+  WeatherData,
+  WeatherDataResponse,
+} from '../interfaces/weather-data-response';
 
 export class WeatherHelpers {
-
-  static transformWeatherDataList(weatherList: WeatherResponse[]):Weather[] {
+  static transformWeatherDataList(weatherList: WeatherResponse[]): Weather[] {
     return weatherList.map((weather) => ({
-      temperature: weather.main.temp,
+      temperature: +(weather.main.temp - 273.15).toFixed(1),
       windspeed: weather.wind.speed,
       description: weather.weather[0].description,
       icon: weather.weather[0].icon,
@@ -13,25 +15,31 @@ export class WeatherHelpers {
     }));
   }
 
-  static groupWeatherByDate(list: Weather[]) {
-    return list.reduce((acc, item) => {
-      const date = item.date.split(' ')[0];
+  static groupWeatherByDate(list: Weather[], limitDays: number): Weather[][] {
+    const grouped = list.reduce((acc, item) => {
+      const date = item.date.split(' ')[0]; // Extract date part (YYYY-MM-DD)
       if (!acc[date]) {
         acc[date] = [];
       }
       acc[date].push(item);
       return acc;
     }, {} as Record<string, Weather[]>);
+    return Object.values(grouped).slice(0, limitDays);
   }
 
-  static formatWeatherData(data: WeatherDataResponse): any {
-    const transformedWeatherDataList = WeatherHelpers.transformWeatherDataList(data.list);
+  static formatWeatherData(data: WeatherDataResponse): WeatherData {
+    const { list, city } = data;
+
+    const transformedWeatherDataList =
+      WeatherHelpers.transformWeatherDataList(list);
+
     const weatherListGroupedByDate = WeatherHelpers.groupWeatherByDate(
-      transformedWeatherDataList
+      transformedWeatherDataList,
+      5
     );
-    const transformedWeatherData =  {
-        city: data.city.name,
-        weatherData: weatherListGroupedByDate,
+    const transformedWeatherData = {
+      city: city.name,
+      weatherData: weatherListGroupedByDate,
     };
     console.log('Transformed Weather Data:', transformedWeatherData);
     return transformedWeatherData;
