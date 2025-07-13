@@ -8,7 +8,7 @@
   <details class="weather-day__details">
     <summary>Hourly Forecast</summary>
     <div class="weather-day__hourly">
-      @for (hourlyWeather of weather; track hourlyWeather) {
+      @for (hourlyWeather of weather; track hourlyWeather.date) {
       <app-weather
         [weather]="hourlyWeather"
         [dateType]="{ dateFormat: 'shortTime' }"
