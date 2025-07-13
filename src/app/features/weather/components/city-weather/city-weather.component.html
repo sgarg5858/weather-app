@@ -3,8 +3,8 @@
     <h2>{{ cityWeather.city }}</h2>
   </div>
   <div class="city-weather__body">
-    @for(weatherData of cityWeather.weatherData; track weatherData) {
-    <app-city-day-weather [weather]="weatherData"></app-city-day-weather>
+    @for(weatherData of cityWeather.weather | keyvalue; track weatherData.key) {
+    <app-city-day-weather [weather]="weatherData.value"></app-city-day-weather>
     }
   </div>
 </div>

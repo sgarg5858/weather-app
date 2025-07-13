@@ -32,9 +32,8 @@ function transformWeatherDataList(weatherList: WeatherResponse[]): Weather[] {
 function limitWeatherDataByDays(
   weatherRecord: Record<string, Weather[]>,
   days: number
-): Weather[][] {
-  const weatherList = Object.values(weatherRecord).slice(0, days);
-  return weatherList;
+): Record<string, Weather[]> {
+  return Object.fromEntries(Object.entries(weatherRecord).slice(0, days));
 }
 
 export class WeatherHelpers {
@@ -45,7 +44,7 @@ export class WeatherHelpers {
 
     return {
       city: city.name,
-      weatherData: limitedData,
+      weather: limitedData,
     };
   }
 }

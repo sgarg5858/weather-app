@@ -4,7 +4,7 @@
     [class]="{ 'weather__hour--main': currentWeather }"
   >
     <div class="weather__date">
-      {{ weather.date | date : "shortTime" }}
+      {{ weather.date | date : dateType.dateFormat }}
     </div>
     <div class="weather__description">
       {{ weather.description }}

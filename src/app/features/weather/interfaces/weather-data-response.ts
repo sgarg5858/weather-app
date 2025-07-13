@@ -10,5 +10,5 @@ export interface WeatherDataResponse {
 }
 export interface WeatherData {
     city: string;
-    weatherData: Weather[][];
+    weather: Record<string, Weather[]>;
 }
