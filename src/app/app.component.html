@@ -1,6 +1,10 @@
 <header class="app-header">
-    Weather Forecast
+  Weather Forecast
+
+  <span class="app-header__loader">
+    @if (showProgressBar$ | async) { Loading..... }
+  </span>
 </header>
 <main>
-    <router-outlet/>
+  <router-outlet />
 </main>
